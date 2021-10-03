@@ -11,16 +11,16 @@ class Solution(object):
         """
     
         result = []
-        index_map = {}
+        indexMap = {}
         
         for index, x in enumerate(nums):
             difference = target - x
-            if difference in index_map:
+            if difference in indexMap:
                 result.append(index)
-                result.append(index_map[difference])
+                result.append(indexMap[difference])
                 break
             else:
-                index_map[x] = index
+                indexMap[x] = index
             
         return result
 
