@@ -10,28 +10,27 @@ The path does not end with a trailing '/'.
 The path only contains the directories on the path from the root directory to the target file or directory (i.e., no period '.' or double period '..')
 
 Return the simplified canonical path.
+
+Constraints:
+1 <= path.length <= 3000
+path consists of English letters, digits, period '.', slash '/' or '_'.
+path is a valid absolute Unix path.
 """
 
 class Solution:
     def simplifyPath(path: str) -> str:
     #def simplifyPath(self, path: str) -> str:
         stack = []
-        pathList = path.split('/')
         
-        for item in pathList:
+        for item in path.split('/'):
             if item == '..' and stack:
                 stack.pop()
-            elif item == '':
-                pass
-            elif item not in ['..', '.']:
-                stack.append(str("/" + item))
-        if not stack:
-                stack.append('/')
+            elif item not in ['', '.', '..']:
+                stack.append(item)
                 
                 
-        return ''.join(stack)
+        return '/' + '/'.join(stack)
             
         
 if __name__ == '__main__':
-    print(Solution.simplifyPath("/../"))
-    
+    print(Solution.simplifyPath("/home/"))
