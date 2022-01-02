@@ -22,10 +22,10 @@ class Solution:
             if b:
                 carry += int(b.pop())
 
-            result += str(carry %2)
+            result += str(carry % 2)
             carry = carry // 2
 
         return result[::-1]
 
 if __name__ == '__main__':
-    print(Solution.addBinary('11', '1'))
+    print(Solution.addBinary('101', '11'))
